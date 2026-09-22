@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kingdom 2344</title>
+<style>
+:root{
+  --bg:#071015; --panel:#0c171b; --panel2:#101d21;
+  --ivory:#e9dfc9; --muted:#a8aaa1; --brass:#b99a61;
+  --line:rgba(185,154,97,.28); --red:#7d3e3e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ivory);font-family:Georgia,"Times New Roman",serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 0,rgba(185,154,97,.08),transparent 42%),linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.35));z-index:-1}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:10;background:rgba(7,16,21,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.navin{max-width:1180px;margin:auto;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.brand{letter-spacing:4px;font-size:17px;color:var(--ivory)}
+.brand small{display:block;font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass);margin-top:4px}
+.links{display:flex;gap:30px;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.links a{color:#c7c5bb;transition:.2s}.links a:hover{color:#fff}
+.hero{min-height:620px;display:grid;place-items:center;text-align:center;padding:90px 20px 110px;border-bottom:1px solid var(--line);background:
+radial-gradient(circle at center,rgba(16,35,39,.15),rgba(7,16,21,.82) 68%),
+linear-gradient(180deg,rgba(7,16,21,.25),var(--bg))}
+.kicker{font:11px Arial,sans-serif;letter-spacing:5px;color:var(--brass);text-transform:uppercase}
+h1{font-size:clamp(60px,11vw,150px);line-height:.86;margin:18px 0 8px;letter-spacing:8px;font-weight:500}
+.subtitle{font-size:18px;letter-spacing:7px;color:#c9c5b7}
+.rule{width:150px;height:1px;background:var(--brass);opacity:.55;margin:28px auto}
+.intro{max-width:660px;margin:auto;color:var(--muted);font:14px/1.8 Arial,sans-serif}
+section{max-width:1180px;margin:auto;padding:95px 24px}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:32px}
+.sectionhead h2{margin:0;font-size:30px;font-weight:500;letter-spacing:3px}
+.sectionhead span{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);padding:28px;min-height:190px}
+.num{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass)}
+.card h3{font-size:22px;font-weight:500;margin:18px 0 12px}
+.card p{font:13px/1.75 Arial,sans-serif;color:var(--muted);margin:0}
+.crest{font-size:28px;color:var(--brass)}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.panel{border:1px solid var(--line);background:rgba(12,23,27,.8);padding:34px}
+.panel h3{font-size:25px;font-weight:500;margin:0 0 14px}
+.panel p{font:13px/1.8 Arial,sans-serif;color:var(--muted)}
+.list{margin:22px 0 0;padding:0;list-style:none}
+.list li{display:flex;justify-content:space-between;border-top:1px solid rgba(185,154,97,.14);padding:13px 0;font:12px Arial,sans-serif;color:#c8c8bf}
+.badge{color:var(--brass);letter-spacing:2px}
+footer{border-top:1px solid var(--line);padding:35px 24px;text-align:center;color:#777;font:10px Arial,sans-serif;letter-spacing:2px}
+@media(max-width:760px){
+ .navin{height:auto;min-height:70px;flex-direction:column;gap:14px;padding:15px 18px}
+ .links{gap:14px;flex-wrap:wrap;justify-content:center;font-size:9px}
+ .hero{min-height:560px;padding:75px 18px}
+ .subtitle{font-size:12px;letter-spacing:4px}
+ section{padding:70px 18px}
+ .grid,.split{grid-template-columns:1fr}
+ .sectionhead{align-items:start;gap:12px;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="navin">
+    <a class="brand" href="home.html">2344 <small>KINGDOM ARCHIVE</small></a>
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#kingdom">Kingdom</a>
+      <a href="#alliances">Alliances</a>
+      <a href="#ranking">Ranking</a>
+      <a href="#migration">Migration</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div>
+    <div class="kicker">Royal Archive · Kingdom 2344</div>
+    <h1>2344</h1>
+    <div class="subtitle">ONE KINGDOM</div>
+    <div class="rule"></div>
+    <p class="intro">A central archive for the people, alliances and strategy of Kingdom 2344. Explore the kingdom, meet its alliances, review rankings and learn about migration.</p>
+  </div>
+</header>
+
+<section id="kingdom">
+  <div class="sectionhead"><h2>Kingdom</h2><span>01 · THE REALM</span></div>
+  <div class="split">
+    <div class="panel">
+      <div class="crest">♜</div>
+      <h3>Kingdom Introduction</h3>
+      <p>This space is reserved for the history, atmosphere, rules and identity of Kingdom 2344. The final content can be replaced with your actual kingdom information without changing the layout.</p>
+    </div>
+    <div class="panel">
+      <h3>Current Operations</h3>
+      <ul class="list">
+        <li><span>KVK</span><span class="badge">STRATEGY</span></li>
+        <li><span>Dragon</span><span class="badge">EVENT</span></li>
+        <li><span>Kingdom Rules</span><span class="badge">ARCHIVE</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="alliances">
+  <div class="sectionhead"><h2>Alliances</h2><span>02 · THE HOUSES</span></div>
+  <div class="grid">
+    <article class="card"><div class="num">HOUSE 01</div><h3>Alliance 01</h3><p>Alliance introduction, leadership, timezone and recruitment information.</p></article>
+    <article class="card"><div class="num">HOUSE 02</div><h3>Alliance 02</h3><p>Alliance introduction, leadership, timezone and recruitment information.</p></article>
+    <article class="card"><div class="num">HOUSE 03</div><h3>Alliance 03</h3><p>Alliance introduction, leadership, timezone and recruitment information.</p></article>
+  </div>
+</section>
+
+<section id="ranking">
+  <div class="sectionhead"><h2>Ranking</h2><span>03 · RECORDS</span></div>
+  <div class="panel">
+    <h3>Kingdom Rankings</h3>
+    <p>Player and alliance rankings can be connected here later. This section is intentionally kept clean so real ranking data can be added without redesigning the homepage.</p>
+    <ul class="list">
+      <li><span>Player Ranking</span><span class="badge">VIEW</span></li>
+      <li><span>Alliance Ranking</span><span class="badge">VIEW</span></li>
+      <li><span>Power / Activity</span><span class="badge">VIEW</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="migration">
+  <div class="sectionhead"><h2>Migration</h2><span>04 · OPEN GATES</span></div>
+  <div class="split">
+    <div class="panel">
+      <h3>Migration Information</h3>
+      <p>Use this area for migration requirements, invitation information, contact details and the kingdom's recruitment message.</p>
+    </div>
+    <div class="panel">
+      <h3>For New Arrivals</h3>
+      <p>Important notices, application instructions and contact channels can be placed here.</p>
+    </div>
+  </div>
+</section>
+
+<footer>KINGDOM 2344 · ROYAL ARCHIVE</footer>
+</body>
+</html>
