@@ -187,24 +187,7 @@ h1{
 .modal-backdrop.open .modal{
   transform:translateY(0) scale(1);
 }
-.modal::before,
-.modal::after{
-  content:"";
-  position:absolute;
-  width:42px;
-  height:42px;
-  border-color:var(--gold);
-  opacity:.75;
-  pointer-events:none;
-}
-.modal::before{
-  top:10px;left:10px;
-  border-top:1px solid;border-left:1px solid;
-}
-.modal::after{
-  right:10px;bottom:10px;
-  border-right:1px solid;border-bottom:1px solid;
-}
+/* Modal corner marks removed */
 .modal-inner{
   padding:42px 46px 46px;
 }
