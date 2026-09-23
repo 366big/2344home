@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom 2344 — Royal Archive</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --gold:#c79a52;
+  --gold-light:#f0d08a;
+  --gold-dark:#745126;
+  --ivory:#f3ead8;
+  --ink:#090807;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:#050505;
+  color:var(--ivory);
+  font-family:Inter,Arial,sans-serif;
+}
+
+.stage{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  min-height:620px;
+  overflow:hidden;
+  background:#080706;
+}
+
+/* HERO IMAGE */
+.hero{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(90deg,rgba(3,2,1,.55) 0%,rgba(3,2,1,.08) 42%,rgba(3,2,1,.22) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.72) 0%,transparent 34%,rgba(0,0,0,.20) 100%),
+    url("kingdom2344_hero.png");
+  background-size:cover;
+  background-position:center center;
+  transform:scale(1.035);
+  animation:slowZoom 18s ease-out forwards;
+}
+@keyframes slowZoom{
+  from{transform:scale(1.035)}
+  to{transform:scale(1.0)}
+}
+
+/* cinematic overlays */
+.vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.38) 100%),
+    linear-gradient(90deg,rgba(0,0,0,.42),transparent 28%,transparent 72%,rgba(0,0,0,.28));
+}
+.grain{
+  position:absolute;inset:-50%;pointer-events:none;opacity:.055;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+  animation:grain .25s steps(2) infinite;
+}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}100%{transform:translate(-2%,-2%)}}
+
+/* top crest */
+.crest{
+  position:absolute;top:42px;left:52px;z-index:3;
+  font-family:Cinzel,serif;color:var(--gold-light);
+  letter-spacing:3px;font-size:11px;
+}
+.crest:after{
+  content:"";display:block;width:42px;height:1px;margin-top:9px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+
+/* CENTRAL INTRO */
+.intro{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-43%);
+  width:min(650px,86vw);
+  text-align:center;
+  animation:rise 1.5s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes rise{
+  from{opacity:0;transform:translate(-50%,-35%)}
+  to{opacity:1;transform:translate(-50%,-43%)}
+}
+
+.overline{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  color:var(--gold-light);
+  font-family:Cinzel,serif;font-size:11px;letter-spacing:5px;
+  margin-bottom:19px;
+  text-shadow:0 2px 15px #000;
+}
+.overline:before,.overline:after{
+  content:"";height:1px;width:52px;
+  background:linear-gradient(90deg,transparent,var(--gold));
+}
+.overline:after{transform:scaleX(-1)}
+
+.number{
+  font-family:Cinzel,Georgia,serif;
+  font-size:clamp(82px,13vw,155px);
+  line-height:.78;
+  letter-spacing:-4px;
+  font-weight:500;
+  margin:0;
+  color:rgba(226,196,139,.84);
+  text-shadow:
+    0 1px 0 rgba(116,76,32,.55),
+    0 5px 24px rgba(0,0,0,.72),
+    0 0 24px rgba(214,167,83,.07);
+}
+.kingdom{
+  font-family:Cinzel,serif;
+  font-size:clamp(18px,2.2vw,27px);
+  letter-spacing:9px;
+  margin:15px 0 0;
+  color:#f5ead4;
+  text-shadow:0 3px 15px #000;
+}
+.divider{
+  width:170px;height:1px;margin:25px auto 22px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  position:relative;
+}
+.divider:after{
+  content:"◆";position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-55%);
+  color:var(--gold-light);font-size:8px;
+  text-shadow:0 0 10px var(--gold);
+  background:rgba(10,7,4,.7);padding:0 8px;
+}
+.statement{
+  font-family:Cinzel,serif;
+  font-size:clamp(14px,1.6vw,19px);
+  letter-spacing:3px;
+  color:#f2dfbd;
+  text-shadow:0 2px 14px #000;
+}
+.description{
+  margin:13px auto 0;
+  max-width:540px;
+  color:rgba(245,239,226,.75);
+  font-size:12px;
+  line-height:1.9;
+  letter-spacing:.5px;
+  text-shadow:0 2px 10px #000;
+}
+
+/* HEAVY BUTTON */
+.enter{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin-top:30px;
+  min-width:225px;
+  height:56px;
+  padding:0 27px;
+  color:#f5dfb0;
+  font-family:Cinzel,serif;
+  font-size:11px;
+  letter-spacing:3px;
+  text-decoration:none;
+  border:1px solid #c89b55;
+  background:
+    linear-gradient(180deg,rgba(60,43,23,.94),rgba(18,13,8,.97));
+  box-shadow:
+    inset 0 0 0 1px rgba(255,220,151,.12),
+    inset 0 8px 18px rgba(255,214,137,.06),
+    0 8px 24px rgba(0,0,0,.65),
+    0 0 0 1px rgba(0,0,0,.7);
+  transition:.35s ease;
+}
+.enter:before,.enter:after{
+  content:"";position:absolute;top:5px;bottom:5px;width:4px;
+  border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
+  opacity:.75;
+}
+.enter:before{left:5px}.enter:after{right:5px}
+.enter:hover{
+  color:#fff4d5;
+  border-color:#f0ce86;
+  transform:translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,220,151,.2),
+    0 12px 35px rgba(0,0,0,.75),
+    0 0 28px rgba(210,161,78,.18);
+}
+.arrow{font-size:18px;line-height:0;transition:.35s}
+.enter:hover .arrow{transform:translateX(5px)}
+
+/* corner details */
+.corner{
+  position:absolute;z-index:3;width:70px;height:70px;opacity:.65;
+}
+.corner:before,.corner:after{content:"";position:absolute;background:var(--gold)}
+.corner.tl{top:28px;left:28px;border-left:1px solid rgba(216,174,91,.35);border-top:1px solid rgba(216,174,91,.35)}
+.corner.tr{top:28px;right:28px;border-right:1px solid rgba(216,174,91,.35);border-top:1px solid rgba(216,174,91,.35)}
+.corner.bl{bottom:28px;left:28px;border-left:1px solid rgba(216,174,91,.35);border-bottom:1px solid rgba(216,174,91,.35)}
+.corner.br{bottom:28px;right:28px;border-right:1px solid rgba(216,174,91,.35);border-bottom:1px solid rgba(216,174,91,.35)}
+
+/* footer */
+.footer{
+  position:absolute;z-index:3;bottom:29px;left:52px;right:52px;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  font-family:Cinzel,serif;font-size:8px;letter-spacing:2px;
+  color:rgba(239,219,182,.68);
+}
+.footer .right{text-align:right}
+@media(max-width:650px){
+  .crest{top:25px;left:25px}
+  .intro{top:49%;width:90vw}
+  .number{font-size:82px}
+  .kingdom{font-size:16px;letter-spacing:6px}
+  .description{font-size:11px;line-height:1.7}
+  .enter{margin-top:24px;height:52px;min-width:210px}
+  .footer{left:25px;right:25px;bottom:18px;font-size:7px}
+  .corner{width:45px;height:45px}.corner.tl,.corner.tr{top:15px}.corner.bl,.corner.br{bottom:15px}
+}
+@media(max-height:700px){
+  .description{display:none}.enter{margin-top:20px}.intro{transform:translate(-50%,-45%)}
+}
+</style>
+<style>.entry-lang{position:fixed;right:24px;top:22px;z-index:20}.entry-lang select{background:#071015dd;color:#e9dfc9;border:1px solid #b99a6177;padding:8px;font:10px Arial}</style></head>
+<body><div class="entry-lang"><select id="entryLanguage"></select></div>
+<div class="stage">
+  <div class="hero"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="crest">ROYAL ARCHIVE · 2344</div>
+
+  <main class="intro">
+    <div class="overline"><span data-e="welcome">WELCOME TO</span></div>
+    <div class="number">2344</div>
+    <div class="kingdom">KINGDOM</div>
+    <div class="divider"></div>
+    <div class="statement"><span data-e="tagline">DIFFERENT PEOPLE · ONE KINGDOM</span></div>
+    <p class="description">
+      A kingdom shaped by cooperation, strategy and the people who call it home.
+      Enter the archive and discover the story of Kingdom 2344.
+    </p>
+    <a class="enter" href="home.html">
+      ENTER THE KINGDOM <span class="arrow">→</span>
+    </a>
+  </main>
+
+  <footer class="footer">
+    <span>KINGDOM 2344</span>
+    <span class="right">PEACE · ALLIANCE · GROWTH · TOGETHER</span>
+  </footer>
+</div>
+</body>
+</html><script>const E={"ko": ["환영합니다", "다른 사람들 · 하나의 왕국", "협력과 전략으로 만들어진 2344 왕국의 이야기를 만나보세요.", "왕국 입장 →"], "en": ["WELCOME TO", "DIFFERENT PEOPLE · ONE KINGDOM", "A kingdom shaped by cooperation, strategy and the people who call it home. Enter the archive and discover the story of Kingdom 2344.", "ENTER THE KINGDOM →"], "de": ["WILLKOMMEN IN", "VERSCHIEDENE MENSCHEN · EIN KÖNIGREICH", "Ein Königreich geprägt von Zusammenarbeit, Strategie und seinen Menschen. Entdecke die Geschichte von Königreich 2344.", "KÖNIGREICH BETRETEN →"], "es": ["BIENVENIDO A", "PERSONAS DIFERENTES · UN SOLO REINO", "Un reino formado por cooperación, estrategia y sus habitantes. Descubre la historia del Reino 2344.", "ENTRAR AL REINO →"], "fr": ["BIENVENUE DANS", "DES PERSONNES DIFFÉRENTES · UN SEUL ROYAUME", "Un royaume façonné par la coopération, la stratégie et ses habitants. Découvrez l’histoire du Royaume 2344.", "ENTRER DANS LE ROYAUME →"], "ar": ["مرحبًا بكم في", "أشخاص مختلفون · مملكة واحدة", "مملكة تشكلت بالتعاون والاستراتيجية وبأيدي من يعتبرونها موطنًا لهم. اكتشف قصة مملكة 2344.", "دخول المملكة →"], "id": ["SELAMAT DATANG DI", "ORANG BERBEDA · SATU KERAJAAN", "Kerajaan yang dibentuk oleh kerja sama, strategi, dan orang-orangnya. Temukan kisah Kerajaan 2344.", "MASUK KE KERAJAAN →"], "zh-TW": ["歡迎來到", "不同的人 · 同一個王國", "一個由合作、策略與共同守護家園的人們所塑造的王國。探索2344王國的故事。", "進入王國 →"], "zh-CN": ["欢迎来到", "不同的人 · 同一个王国", "一个由合作、战略以及共同守护家园的人们塑造的王国。探索2344王国的故事。", "进入王国 →"], "ja": ["ようこそ", "異なる人々 · ひとつの王国", "協力と戦略、そして人々によって築かれた王国です。2344王国の物語をご覧ください。", "王国へ入る →"]};const EN={"ko": "한국어", "en": "English", "de": "Deutsch", "es": "Español", "fr": "Français", "ar": "العربية", "id": "Bahasa Indonesia", "zh-TW": "繁體中文", "zh-CN": "简体中文", "ja": "日本語"};const q=document.getElementById('entryLanguage');Object.keys(EN).forEach(k=>{let o=document.createElement('option');o.value=k;o.textContent=EN[k];q.appendChild(o)});function eSet(k){document.documentElement.lang=k;document.documentElement.dir=k==='ar'?'rtl':'ltr';let a=E[k]||E.en;document.querySelector('[data-e=welcome]').textContent=a[0];document.querySelector('[data-e=tagline]').textContent=a[1];document.querySelector('[data-e=desc]').textContent=a[2];document.querySelector('[data-e=enter]').textContent=a[3];q.value=k;localStorage.setItem('kingdom2344_lang',k)}q.onchange=()=>eSet(q.value);eSet(localStorage.getItem('kingdom2344_lang')||'ko');</script>
