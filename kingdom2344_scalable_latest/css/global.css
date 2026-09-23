@@ -1,0 +1,38 @@
+/* Kingdom 2344 — Global Royal Archive Cursor */
+@media (pointer:fine){
+  html,body,a,button,input,select,textarea{cursor:none!important}
+  .k2344-cursor-dot,.k2344-cursor-ring{
+    position:fixed;left:0;top:0;pointer-events:none;z-index:2147483647;
+    opacity:0;transform:translate3d(-100px,-100px,0);will-change:transform;
+  }
+  .k2344-cursor-dot{
+    width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;
+    background:#e2c48b;
+    box-shadow:0 0 0 1px rgba(226,196,139,.45),0 0 12px rgba(226,196,139,.45);
+  }
+  .k2344-cursor-ring{
+    width:25px;height:25px;margin:-12.5px 0 0 -12.5px;
+    border:1px solid rgba(226,196,139,.72);
+    transform-origin:center;
+    transition:width .18s ease,height .18s ease,margin .18s ease,
+      border-color .18s ease,background .18s ease,box-shadow .18s ease;
+  }
+  .k2344-cursor-ring::before,.k2344-cursor-ring::after{
+    content:"";position:absolute;left:50%;top:50%;
+    background:rgba(226,196,139,.58);transform:translate(-50%,-50%);
+  }
+  .k2344-cursor-ring::before{width:1px;height:35px}
+  .k2344-cursor-ring::after{width:35px;height:1px}
+  .k2344-cursor-ring.is-hover{
+    width:38px;height:38px;margin:-19px 0 0 -19px;
+    border-color:rgba(226,196,139,.95);
+    background:rgba(226,196,139,.06);
+    box-shadow:0 0 22px rgba(226,196,139,.20);
+  }
+  .k2344-cursor-ring.is-press{
+    width:20px;height:20px;margin:-10px 0 0 -10px;
+  }
+}
+@media (pointer:coarse){
+  .k2344-cursor-dot,.k2344-cursor-ring{display:none!important}
+}

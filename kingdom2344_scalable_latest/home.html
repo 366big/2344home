@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kingdom 2344</title>
+<style>
+:root{
+  --bg:#071015; --panel:#0c171b; --panel2:#101d21;
+  --ivory:#e9dfc9; --muted:#a8aaa1; --brass:#b99a61;
+  --line:rgba(185,154,97,.28); --red:#7d3e3e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ivory);font-family:Georgia,"Times New Roman",serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 0,rgba(185,154,97,.08),transparent 42%),linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.35));z-index:-1}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:10;background:rgba(7,16,21,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.navin{max-width:1180px;margin:auto;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.brand{letter-spacing:4px;font-size:17px;color:var(--ivory)}
+.brand small{display:block;font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass);margin-top:4px}
+.links{display:flex;gap:30px;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.links a{color:#c7c5bb;transition:.2s}.links a:hover{color:#fff}
+.hero{min-height:620px;display:grid;place-items:center;text-align:center;padding:90px 20px 110px;border-bottom:1px solid var(--line);background:
+radial-gradient(circle at center,rgba(16,35,39,.15),rgba(7,16,21,.82) 68%),
+linear-gradient(180deg,rgba(7,16,21,.25),var(--bg))}
+.kicker{font:11px Arial,sans-serif;letter-spacing:5px;color:var(--brass);text-transform:uppercase}
+h1{font-size:clamp(60px,11vw,150px);line-height:.86;margin:18px 0 8px;letter-spacing:8px;font-weight:500}
+.subtitle{font-size:18px;letter-spacing:7px;color:#c9c5b7}
+.rule{width:150px;height:1px;background:var(--brass);opacity:.55;margin:28px auto}
+.intro{max-width:660px;margin:auto;color:var(--muted);font:14px/1.8 Arial,sans-serif}
+section{max-width:1180px;margin:auto;padding:95px 24px}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:32px}
+.sectionhead h2{margin:0;font-size:30px;font-weight:500;letter-spacing:3px}
+.sectionhead span{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.card{grid-column:span 2;background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);padding:28px;min-height:190px}
+.num{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass)}
+.card:nth-child(4){grid-column:2 / span 2}.card:nth-child(5){grid-column:4 / span 2}.card h3{font-size:22px;font-weight:500;margin:18px 0 12px}
+.card p{font:13px/1.75 Arial,sans-serif;color:var(--muted);margin:0}
+.crest{font-size:28px;color:var(--brass)}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.panel{border:1px solid var(--line);background:rgba(12,23,27,.8);padding:34px}
+.panel h3{font-size:25px;font-weight:500;margin:0 0 14px}
+.panel p{font:13px/1.8 Arial,sans-serif;color:var(--muted)}
+.list{margin:22px 0 0;padding:0;list-style:none}
+.list li{display:flex;justify-content:space-between;border-top:1px solid rgba(185,154,97,.14);padding:13px 0;font:12px Arial,sans-serif;color:#c8c8bf}
+.badge{color:var(--brass);letter-spacing:2px}
+footer{border-top:1px solid var(--line);padding:35px 24px;text-align:center;color:#777;font:10px Arial,sans-serif;letter-spacing:2px}
+@media(max-width:760px){
+ .navin{height:auto;min-height:70px;flex-direction:column;gap:14px;padding:15px 18px}
+ .links{gap:14px;flex-wrap:wrap;justify-content:center;font-size:9px}
+ .hero{min-height:560px;padding:75px 18px}
+ .subtitle{font-size:12px;letter-spacing:4px}
+ section{padding:70px 18px}
+ .grid,.split{grid-template-columns:1fr}.card,.card:nth-child(4),.card:nth-child(5){grid-column:auto}
+ .sectionhead{align-items:start;gap:12px;flex-direction:column}
+}
+.lang{position:relative}.lang button{background:transparent;border:1px solid rgba(185,154,97,.4);color:#ddd4c2;padding:8px 10px;font:10px Arial;cursor:pointer}.lang select{background:#0b1519;color:#ddd4c2;border:1px solid var(--line);padding:8px}
+@media(max-width:760px){.navin{flex-wrap:wrap}.lang{margin-left:4px}}
+</style>
+<style>
+/* ===== Kingdom 2344 Royal Cursor — site-wide ===== */
+@media (pointer:fine) {
+  html, body, a, button, input, select, textarea {
+    cursor: none !important;
+  }
+
+  .k2344-cursor-dot,
+  .k2344-cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 2147483647;
+    opacity: 0;
+    transform: translate3d(-100px,-100px,0);
+    will-change: transform;
+  }
+
+  .k2344-cursor-dot {
+    width: 7px;
+    height: 7px;
+    margin-left: -3.5px;
+    margin-top: -3.5px;
+    border-radius: 50%;
+    background: #e2c48b;
+    box-shadow:
+      0 0 0 1px rgba(226,196,139,.45),
+      0 0 12px rgba(226,196,139,.45);
+  }
+
+  .k2344-cursor-ring {
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    margin-top: -12.5px;
+    border: 1px solid rgba(226,196,139,.72);
+    transform-origin: center;
+    transition:
+      width .18s ease,
+      height .18s ease,
+      margin .18s ease,
+      border-color .18s ease,
+      background .18s ease,
+      box-shadow .18s ease;
+  }
+
+  .k2344-cursor-ring::before,
+  .k2344-cursor-ring::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: rgba(226,196,139,.58);
+    transform: translate(-50%,-50%);
+  }
+
+  .k2344-cursor-ring::before {
+    width: 1px;
+    height: 35px;
+  }
+
+  .k2344-cursor-ring::after {
+    width: 35px;
+    height: 1px;
+  }
+
+  .k2344-cursor-ring.is-hover {
+    width: 38px;
+    height: 38px;
+    margin-left: -19px;
+    margin-top: -19px;
+    border-color: rgba(226,196,139,.95);
+    background: rgba(226,196,139,.06);
+    box-shadow: 0 0 22px rgba(226,196,139,.20);
+  }
+
+  .k2344-cursor-ring.is-press {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+}
+
+@media (pointer:coarse) {
+  .k2344-cursor-dot,
+  .k2344-cursor-ring {
+    display: none !important;
+  }
+}
+</style>
+<link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="navin">
+    <a class="brand" href="home.html">2344 <small>KINGDOM ARCHIVE</small></a>
+    <div class="links">
+      <a href="home.html" data-i18n="home">Home</a>
+      <a href="pages/kingdom/" data-i18n="kingdom">Kingdom</a>
+      <a href="pages/alliances/" data-i18n="alliances">Alliances</a>
+      <a href="pages/rankings/" data-i18n="ranking">Ranking</a>
+      <a href="pages/migration/" data-i18n="migration">Migration</a>
+    </div><div class="lang"><select id="language"></select></div></div></div>
+</nav>
+
+<header class="hero" id="home">
+  <div>
+    <div class="kicker">Royal Archive · Kingdom 2344</div>
+    <h1>2344</h1>
+    <div class="subtitle">ONE KINGDOM</div>
+    <div class="rule"></div>
+    <p class="intro">A central archive for the people, alliances and strategy of Kingdom 2344. Explore the kingdom, meet its alliances, review rankings and learn about migration.</p>
+  </div>
+</header>
+
+<section id="kingdom">
+  <div class="sectionhead"><h2 data-i18n="kingdomTitle">Kingdom</h2><span>01 · THE REALM</span></div>
+  <div class="split">
+    <div class="panel">
+      <div class="crest">♜</div>
+      <h3 data-i18n="kingdomIntroTitle">Kingdom Introduction</h3>
+      <p>This space is reserved for the history, atmosphere, rules and identity of Kingdom 2344. The final content can be replaced with your actual kingdom information without changing the layout.</p>
+    </div>
+    <div class="panel">
+      <h3 data-i18n="operations">Current Operations</h3>
+      <ul class="list">
+        <li><span>KVK</span><span class="badge">STRATEGY</span></li>
+        <li><span>Dragon</span><span class="badge">EVENT</span></li>
+        <li><span>Kingdom Rules</span><span class="badge">ARCHIVE</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="alliances">
+  <div class="sectionhead"><h2 data-i18n="alliancesTitle">Top 5 Alliances</h2><span>02 · THE HOUSES</span></div>
+  <div class="grid">
+    <article class="card"><div class="num">NAP 01</div><h3>Alliance 01</h3><p data-i18n="allianceDesc">Alliance introduction, leadership, timezone and recruitment information.</p></article>
+    <article class="card"><div class="num">NAP 02</div><h3>Alliance 02</h3><p data-i18n="allianceDesc">Alliance introduction, leadership, timezone and recruitment information.</p></article>
+    <article class="card"><div class="num">NAP 03</div><h3>Alliance 03</h3><p data-i18n="allianceDesc">Alliance introduction, leadership, timezone and recruitment information.</p></article>
+    <article class="card"><div class="num">NAP 04</div><h3>Alliance 04</h3><p data-i18n="allianceDesc">Alliance introduction, leadership, timezone and recruitment information.</p></article>
+    <article class="card"><div class="num">NAP 05</div><h3>Alliance 05</h3><p data-i18n="allianceDesc">Alliance introduction, leadership, timezone and recruitment information.</p></article>
+  </div>
+</section>
+
+<section id="ranking">
+  <div class="sectionhead"><h2 data-i18n="rankingTitle">Ranking</h2><span>03 · RECORDS</span></div>
+  <div class="panel">
+    <h3 data-i18n="rankHeading">Kingdom Rankings</h3>
+    <p>Player and alliance rankings can be connected here later. This section is intentionally kept clean so real ranking data can be added without redesigning the homepage.</p>
+    <ul class="list">
+      <li><span>Player Ranking</span><span class="badge">VIEW</span></li>
+      <li><span>Alliance Ranking</span><span class="badge">VIEW</span></li>
+      <li><span>Power / Activity</span><span class="badge">VIEW</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="migration">
+  <div class="sectionhead"><h2 data-i18n="migrationTitle">Migration</h2><span>04 · OPEN GATES</span></div>
+  <div class="split">
+    <div class="panel">
+      <h3 data-i18n="migrationInfoTitle">Migration Information</h3>
+      <p>Use this area for migration requirements, invitation information, contact details and the kingdom's recruitment message.</p>
+    </div>
+    <div class="panel">
+      <h3 data-i18n="newArrivals">For New Arrivals</h3>
+      <p>Important notices, application instructions and contact channels can be placed here.</p>
+    </div>
+  </div>
+</section>
+
+<footer>KINGDOM 2344 · ROYAL ARCHIVE</footer>
+<script>const T={"ko": {"home": "홈", "kingdom": "왕국 소개", "alliances": "연맹 소개", "ranking": "랭킹", "migration": "이민", "kingdomTitle": "왕국 소개", "kingdomIntroTitle": "2344 왕국", "operations": "주요 운영", "alliancesTitle": "주요 연맹 5", "rankingTitle": "랭킹", "rankHeading": "왕국 랭킹", "migrationTitle": "이민", "migrationInfoTitle": "이민 정보", "newArrivals": "새로운 이민자", "allianceDesc": "연맹 소개, 리더십, 시간대 및 모집 정보를 확인할 수 있습니다."}, "en": {"home": "Home", "kingdom": "Kingdom", "alliances": "Alliances", "ranking": "Ranking", "migration": "Migration", "kingdomTitle": "Kingdom", "kingdomIntroTitle": "Kingdom Introduction", "operations": "Current Operations", "alliancesTitle": "Top 5 Alliances", "rankingTitle": "Ranking", "rankHeading": "Kingdom Rankings", "migrationTitle": "Migration", "migrationInfoTitle": "Migration Information", "newArrivals": "For New Arrivals", "allianceDesc": "Alliance introduction, leadership, timezone and recruitment information."}, "de": {"home": "Startseite", "kingdom": "Königreich", "alliances": "Allianzen", "ranking": "Rangliste", "migration": "Migration", "kingdomTitle": "Königreich", "kingdomIntroTitle": "Königreich 2344", "operations": "Aktuelle Aktivitäten", "alliancesTitle": "Top 5 Allianzen", "rankingTitle": "Rangliste", "rankHeading": "Königreichs-Ranglisten", "migrationTitle": "Migration", "migrationInfoTitle": "Migrationsinformationen", "newArrivals": "Für Neuankömmlinge", "allianceDesc": "Informationen zu Allianz, Führung, Zeitzone und Rekrutierung."}, "es": {"home": "Inicio", "kingdom": "Reino", "alliances": "Alianzas", "ranking": "Clasificación", "migration": "Migración", "kingdomTitle": "Reino", "kingdomIntroTitle": "Introducción al Reino", "operations": "Operaciones actuales", "alliancesTitle": "5 Alianzas principales", "rankingTitle": "Clasificación", "rankHeading": "Clasificaciones del Reino", "migrationTitle": "Migración", "migrationInfoTitle": "Información de migración", "newArrivals": "Para nuevos llegados", "allianceDesc": "Información sobre la alianza, liderazgo, zona horaria y reclutamiento."}, "fr": {"home": "Accueil", "kingdom": "Royaume", "alliances": "Alliances", "ranking": "Classement", "migration": "Migration", "kingdomTitle": "Royaume", "kingdomIntroTitle": "Présentation du royaume", "operations": "Opérations actuelles", "alliancesTitle": "Top 5 des alliances", "rankingTitle": "Classement", "rankHeading": "Classements du royaume", "migrationTitle": "Migration", "migrationInfoTitle": "Informations de migration", "newArrivals": "Pour les nouveaux arrivants", "allianceDesc": "Présentation, direction, fuseau horaire et recrutement de l’alliance."}, "ar": {"home": "الرئيسية", "kingdom": "المملكة", "alliances": "التحالفات", "ranking": "التصنيف", "migration": "الهجرة", "kingdomTitle": "المملكة", "kingdomIntroTitle": "مقدمة عن المملكة", "operations": "العمليات الحالية", "alliancesTitle": "أفضل 5 تحالفات", "rankingTitle": "التصنيف", "rankHeading": "تصنيفات المملكة", "migrationTitle": "الهجرة", "migrationInfoTitle": "معلومات الهجرة", "newArrivals": "للقادمين الجدد", "allianceDesc": "معلومات عن التحالف والقيادة والمنطقة الزمنية والتجنيد."}, "id": {"home": "Beranda", "kingdom": "Kerajaan", "alliances": "Aliansi", "ranking": "Peringkat", "migration": "Migrasi", "kingdomTitle": "Kerajaan", "kingdomIntroTitle": "Tentang Kerajaan", "operations": "Operasi Saat Ini", "alliancesTitle": "5 Aliansi Utama", "rankingTitle": "Peringkat", "rankHeading": "Peringkat Kerajaan", "migrationTitle": "Migrasi", "migrationInfoTitle": "Informasi Migrasi", "newArrivals": "Untuk Pendatang Baru", "allianceDesc": "Informasi aliansi, kepemimpinan, zona waktu, dan perekrutan."}, "zh-TW": {"home": "首頁", "kingdom": "王國介紹", "alliances": "聯盟介紹", "ranking": "排行榜", "migration": "移民", "kingdomTitle": "王國", "kingdomIntroTitle": "王國介紹", "operations": "目前運作", "alliancesTitle": "主要聯盟 5", "rankingTitle": "排行榜", "rankHeading": "王國排行榜", "migrationTitle": "移民", "migrationInfoTitle": "移民資訊", "newArrivals": "新移民", "allianceDesc": "聯盟介紹、領導、時區與招募資訊。"}, "zh-CN": {"home": "首页", "kingdom": "王国介绍", "alliances": "联盟介绍", "ranking": "排行榜", "migration": "移民", "kingdomTitle": "王国", "kingdomIntroTitle": "王国介绍", "operations": "当前运营", "alliancesTitle": "主要联盟 5", "rankingTitle": "排行榜", "rankHeading": "王国排行榜", "migrationTitle": "移民", "migrationInfoTitle": "移民信息", "newArrivals": "新移民", "allianceDesc": "联盟介绍、领导、时区和招募信息。"}, "ja": {"home": "ホーム", "kingdom": "王国紹介", "alliances": "同盟紹介", "ranking": "ランキング", "migration": "移民", "kingdomTitle": "王国", "kingdomIntroTitle": "王国紹介", "operations": "現在の運営", "alliancesTitle": "主要同盟 5", "rankingTitle": "ランキング", "rankHeading": "王国ランキング", "migrationTitle": "移民", "migrationInfoTitle": "移民情報", "newArrivals": "新規移民向け", "allianceDesc": "同盟紹介、リーダー、タイムゾーン、募集情報。"}};const N={"ko": "한국어", "en": "English", "de": "Deutsch", "es": "Español", "fr": "Français", "ar": "العربية", "id": "Bahasa Indonesia", "zh-TW": "繁體中文", "zh-CN": "简体中文", "ja": "日本語"};const s=document.getElementById('language');Object.keys(N).forEach(k=>{let o=document.createElement('option');o.value=k;o.textContent=N[k];s.appendChild(o)});function setLang(k){let t=T[k]||T.en;document.documentElement.lang=k;document.documentElement.dir=k==='ar'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(e=>{if(t[e.dataset.i18n])e.textContent=t[e.dataset.i18n]});localStorage.setItem('kingdom2344_lang',k);s.value=k} s.onchange=()=>setLang(s.value);setLang(localStorage.getItem('kingdom2344_lang')||'en');</script>
+<script>
+(function () {
+  if (window.matchMedia && !window.matchMedia('(pointer:fine)').matches) return;
+
+  const dot = document.createElement('div');
+  const ring = document.createElement('div');
+  dot.className = 'k2344-cursor-dot';
+  ring.className = 'k2344-cursor-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  let x = -100, y = -100, rx = -100, ry = -100;
+  let active = false;
+
+  function move(e) {
+    x = e.clientX;
+    y = e.clientY;
+    if (!active) {
+      active = true;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+    dot.style.transform = `translate3d(${x}px,${y}px,0)`;
+  }
+
+  function animate() {
+    rx += (x - rx) * 0.16;
+    ry += (y - ry) * 0.16;
+    ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+    requestAnimationFrame(animate);
+  }
+
+  document.addEventListener('mousemove', move, {passive:true});
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    if (active) {
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+  });
+
+  document.addEventListener('mousedown', () => ring.classList.add('is-press'));
+  document.addEventListener('mouseup', () => ring.classList.remove('is-press'));
+
+  function bindHover() {
+    document.querySelectorAll('a, button, [role="button"], input, select, textarea, .card, .ranking-card, .alliance-card, .nav-link').forEach(el => {
+      if (el.dataset.k2344CursorBound) return;
+      el.dataset.k2344CursorBound = '1';
+      el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
+    });
+  }
+
+  bindHover();
+
+  const observer = new MutationObserver(bindHover);
+  observer.observe(document.body, {childList:true, subtree:true});
+
+  animate();
+})();
+</script>
+
+<script src="js/global.js"></script>
+</body>
+</html>
