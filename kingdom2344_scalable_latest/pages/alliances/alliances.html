@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alliances · Kingdom 2344</title>
+<style>
+:root{
+  --bg:#050b0e;
+  --panel:#0a1317;
+  --ivory:#e9dfc9;
+  --muted:#9fa49f;
+  --brass:#c3a46a;
+  --line:rgba(195,164,106,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ivory);
+  background:
+    radial-gradient(circle at 50% -10%,rgba(195,164,106,.10),transparent 34%),
+    radial-gradient(circle at 50% 45%,rgba(24,45,51,.16),transparent 52%),
+    #050b0e;
+  font-family:Georgia,"Times New Roman",serif;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.42));
+}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:20;background:rgba(5,11,14,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.navin{max-width:1280px;margin:auto;min-height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.brand{letter-spacing:4px;font-size:17px;color:var(--ivory)}
+.brand small{display:block;font:10px Arial,sans-serif;letter-spacing:3px;color:var(--brass);margin-top:4px}
+.links{display:flex;gap:30px;align-items:center;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.links a{color:#bfc0b9;transition:.25s}.links a:hover,.links a.active{color:#fff}
+.lang select{background:#0a1317;color:#ddd4c2;border:1px solid var(--line);padding:8px 10px;font:10px Arial,sans-serif;letter-spacing:.5px}
+main{max-width:1420px;margin:auto;padding:76px 28px 110px}
+.eyebrow{text-align:center;font:10px Arial,sans-serif;letter-spacing:5px;color:var(--brass);text-transform:uppercase}
+h1{text-align:center;font-size:clamp(46px,6vw,82px);font-weight:500;letter-spacing:9px;margin:13px 0 12px;text-transform:uppercase}
+.intro{text-align:center;max-width:620px;margin:0 auto;color:#aaa99f;font:13px/1.8 Arial,sans-serif;letter-spacing:.5px}
+.rule{width:150px;height:1px;background:linear-gradient(90deg,transparent,var(--brass),transparent);margin:28px auto 58px;opacity:.7}
+.alliance-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:24px;
+  align-items:start;
+}
+.alliance-card{
+  grid-column:span 2;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(195,164,106,.38);
+  background:#080f12;
+  box-shadow:0 22px 60px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.025) inset;
+  cursor:pointer;
+  transition:transform .45s cubic-bezier(.2,.75,.2,1),box-shadow .45s,border-color .45s;
+}
+.alliance-card:nth-child(4){grid-column:2 / span 2}
+.alliance-card:nth-child(5){grid-column:4 / span 2}
+.alliance-card:before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.04) 45%,rgba(0,0,0,.34) 100%)}
+.alliance-card:after{content:"";position:absolute;inset:10px;z-index:3;pointer-events:none;border:1px solid rgba(229,205,157,.16);transition:border-color .4s}
+.alliance-card img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .45s}
+.card-label{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:24px 22px 20px;text-align:center;background:linear-gradient(180deg,transparent,rgba(3,7,9,.58) 30%,rgba(3,7,9,.86));}
+.card-label span{display:block;font:9px Arial,sans-serif;letter-spacing:4px;color:var(--brass);margin-bottom:7px;text-transform:uppercase}
+.card-label strong{display:block;font-size:22px;font-weight:500;letter-spacing:5px;text-transform:uppercase}
+.view{display:inline-block;margin-top:11px;padding:8px 16px;border:1px solid rgba(215,190,137,.42);font:9px Arial,sans-serif;letter-spacing:2px;color:#ded5c4;text-transform:uppercase;background:rgba(0,0,0,.22)}
+.alliance-card:hover{transform:translateY(-9px);border-color:rgba(221,191,132,.82);box-shadow:0 30px 75px rgba(0,0,0,.62),0 0 28px rgba(195,164,106,.10)}
+.alliance-card:hover img{transform:scale(1.035);filter:saturate(1.05) contrast(1.03)}
+.alliance-card:hover:after{border-color:rgba(229,205,157,.42)}
+.note{text-align:center;margin-top:42px;color:#777b76;font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;color:#6f736f;font:10px Arial,sans-serif;letter-spacing:2px}
+@media(max-width:980px){
+ .alliance-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin:auto}
+ .alliance-card,.alliance-card:nth-child(4),.alliance-card:nth-child(5){grid-column:auto}
+ .alliance-card:nth-child(5){grid-column:1 / -1;max-width:calc((100% - 24px)/2);justify-self:center}
+}
+@media(max-width:650px){
+ .navin{min-height:70px;flex-wrap:wrap;justify-content:center;gap:12px;padding:14px 16px}
+ .brand{width:100%;text-align:center}
+ .links{gap:14px;justify-content:center;font-size:9px;flex-wrap:wrap}
+ .lang{display:none}
+ main{padding:58px 16px 80px}
+ h1{font-size:42px;letter-spacing:6px}
+ .rule{margin-bottom:38px}
+ .alliance-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:430px}
+ .alliance-card,.alliance-card:nth-child(4),.alliance-card:nth-child(5){grid-column:auto;max-width:none;justify-self:stretch}
+ .card-label strong{font-size:21px}
+}
+</style>
+<link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="navin">
+    <a class="brand" href="home.html">2344 <small>KINGDOM ARCHIVE</small></a>
+    <div class="links">
+      <a href="home.html">Home</a>
+      <a href="kingdom.html">Kingdom</a>
+      <a href="alliances.html" class="active">Alliances</a>
+      <a href="ranking.html">Ranking</a>
+      <a href="migration.html">Migration</a>
+    </div>
+    <div class="lang"><select aria-label="Language"><option>English</option><option>한국어</option><option>Deutsch</option><option>Español</option><option>Français</option><option>العربية</option><option>Bahasa Indonesia</option><option>繁體中文</option><option>简体中文</option><option>日本語</option></select></div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Kingdom 2344 · NAP 5</div>
+  <h1>Alliances</h1>
+  <p class="intro">Five alliances, five identities, one kingdom. Explore the banners that shape Kingdom 2344.</p>
+  <div class="rule"></div>
+
+  <section class="alliance-grid" aria-label="Kingdom 2344 alliances">
+    <article class="alliance-card" data-alliance="SUN" tabindex="0" role="button" aria-label="SUN alliance">
+      <img src="assets/images/alliance/SUN.png" alt="SUN alliance">
+      <div class="card-label"><span>Alliance 01</span><strong>SUN</strong><em class="view">View Alliance →</em></div>
+    </article>
+    <article class="alliance-card" data-alliance="VIP" tabindex="0" role="button" aria-label="VIP alliance">
+      <img src="assets/images/alliance/VIP.png" alt="VIP alliance">
+      <div class="card-label"><span>Alliance 02</span><strong>VIP</strong><em class="view">View Alliance →</em></div>
+    </article>
+    <article class="alliance-card" data-alliance="ZZZ" tabindex="0" role="button" aria-label="ZZZ alliance">
+      <img src="assets/images/alliance/ZZZ.png" alt="ZZZ alliance">
+      <div class="card-label"><span>Alliance 03</span><strong>ZZZ</strong><em class="view">View Alliance →</em></div>
+    </article>
+    <article class="alliance-card" data-alliance="FIL" tabindex="0" role="button" aria-label="FIL alliance">
+      <img src="assets/images/alliance/FIL.png" alt="FIL alliance">
+      <div class="card-label"><span>Alliance 04</span><strong>FIL</strong><em class="view">View Alliance →</em></div>
+    </article>
+    <article class="alliance-card" data-alliance="ODI" tabindex="0" role="button" aria-label="ODI alliance">
+      <img src="assets/images/alliance/ODI.png" alt="ODI alliance">
+      <div class="card-label"><span>Alliance 05</span><strong>ODI</strong><em class="view">View Alliance →</em></div>
+    </article>
+  </section>
+
+  <div class="note">Alliance details · Coming next</div>
+</main>
+
+<footer>KINGDOM 2344 · ALLIANCES · FIVE BANNERS · ONE KINGDOM</footer>
+
+<script src="js/global.js"></script>
+</body>
+</html>
