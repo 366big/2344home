@@ -38,32 +38,24 @@ export default async function handler(req, res) {
 
     // MightPulse may wrap the leaderboard in an object.
     // Normalize the possible response shapes to an array.
-    let board = [];
+   const candidates = [
+  rankData,
+  rankData?.rows,
+  rankData?.players,
+  rankData?.leaderboard,
+  rankData?.ranks,
+  rankData?.board,
+  rankData?.board?.rows,
+  rankData?.board?.players,
+  rankData?.ranks?.rows,
+  rankData?.ranks?.players,
+  rankData?.data?.rows,
+  rankData?.data?.players
+];
 
-    if (Array.isArray(rankData)) {
-      board = rankData;
-    } else if (Array.isArray(rankData?.rows)) {
-      board = rankData.rows;
-    } else if (Array.isArray(rankData?.players)) {
-      board = rankData.players;
-    } else if (Array.isArray(rankData?.leaderboard)) {
-      board = rankData.leaderboard;
-    } else if (Array.isArray(rankData?.board)) {
-      board = rankData.board;
-    } else if (Array.isArray(rankData?.ranks)) {
-      board = rankData.ranks;
-    } else if (Array.isArray(rankData?.board?.rows)) {
-      board = rankData.board.rows;
-    } else if (Array.isArray(rankData?.ranks?.rows)) {
-      board = rankData.ranks.rows;
-    } else if (Array.isArray(rankData?.board?.players)) {
-      board = rankData.board.players;
-    } else if (Array.isArray(rankData?.ranks?.players)) {
-      board = rankData.ranks.players;
-    }
+const board = candidates.find(Array.isArray) || [];
 
-    const players = board.slice(0, 20);
-
+const players = board.slice(0, 20);
     if (!players.length) {
       return res.status(502).json({
         error: "MightPulse returned no ranking rows.",
