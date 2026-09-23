@@ -59,6 +59,98 @@ footer{border-top:1px solid var(--line);padding:35px 24px;text-align:center;colo
 .lang{position:relative}.lang button{background:transparent;border:1px solid rgba(185,154,97,.4);color:#ddd4c2;padding:8px 10px;font:10px Arial;cursor:pointer}.lang select{background:#0b1519;color:#ddd4c2;border:1px solid var(--line);padding:8px}
 @media(max-width:760px){.navin{flex-wrap:wrap}.lang{margin-left:4px}}
 </style>
+<style>
+/* ===== Kingdom 2344 Royal Cursor — site-wide ===== */
+@media (pointer:fine) {
+  html, body, a, button, input, select, textarea {
+    cursor: none !important;
+  }
+
+  .k2344-cursor-dot,
+  .k2344-cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 2147483647;
+    opacity: 0;
+    transform: translate3d(-100px,-100px,0);
+    will-change: transform;
+  }
+
+  .k2344-cursor-dot {
+    width: 7px;
+    height: 7px;
+    margin-left: -3.5px;
+    margin-top: -3.5px;
+    border-radius: 50%;
+    background: #e2c48b;
+    box-shadow:
+      0 0 0 1px rgba(226,196,139,.45),
+      0 0 12px rgba(226,196,139,.45);
+  }
+
+  .k2344-cursor-ring {
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    margin-top: -12.5px;
+    border: 1px solid rgba(226,196,139,.72);
+    transform-origin: center;
+    transition:
+      width .18s ease,
+      height .18s ease,
+      margin .18s ease,
+      border-color .18s ease,
+      background .18s ease,
+      box-shadow .18s ease;
+  }
+
+  .k2344-cursor-ring::before,
+  .k2344-cursor-ring::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: rgba(226,196,139,.58);
+    transform: translate(-50%,-50%);
+  }
+
+  .k2344-cursor-ring::before {
+    width: 1px;
+    height: 35px;
+  }
+
+  .k2344-cursor-ring::after {
+    width: 35px;
+    height: 1px;
+  }
+
+  .k2344-cursor-ring.is-hover {
+    width: 38px;
+    height: 38px;
+    margin-left: -19px;
+    margin-top: -19px;
+    border-color: rgba(226,196,139,.95);
+    background: rgba(226,196,139,.06);
+    box-shadow: 0 0 22px rgba(226,196,139,.20);
+  }
+
+  .k2344-cursor-ring.is-press {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+}
+
+@media (pointer:coarse) {
+  .k2344-cursor-dot,
+  .k2344-cursor-ring {
+    display: none !important;
+  }
+}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -141,5 +233,71 @@ footer{border-top:1px solid var(--line);padding:35px 24px;text-align:center;colo
 </section>
 
 <footer>KINGDOM 2344 · ROYAL ARCHIVE</footer>
-<script>const T={"ko": {"home": "홈", "kingdom": "왕국 소개", "alliances": "연맹 소개", "ranking": "랭킹", "migration": "이민", "kingdomTitle": "왕국 소개", "kingdomIntroTitle": "2344 왕국", "operations": "주요 운영", "alliancesTitle": "주요 연맹 5", "rankingTitle": "랭킹", "rankHeading": "왕국 랭킹", "migrationTitle": "이민", "migrationInfoTitle": "이민 정보", "newArrivals": "새로운 이민자", "allianceDesc": "연맹 소개, 리더십, 시간대 및 모집 정보를 확인할 수 있습니다."}, "en": {"home": "Home", "kingdom": "Kingdom", "alliances": "Alliances", "ranking": "Ranking", "migration": "Migration", "kingdomTitle": "Kingdom", "kingdomIntroTitle": "Kingdom Introduction", "operations": "Current Operations", "alliancesTitle": "Top 5 Alliances", "rankingTitle": "Ranking", "rankHeading": "Kingdom Rankings", "migrationTitle": "Migration", "migrationInfoTitle": "Migration Information", "newArrivals": "For New Arrivals", "allianceDesc": "Alliance introduction, leadership, timezone and recruitment information."}, "de": {"home": "Startseite", "kingdom": "Königreich", "alliances": "Allianzen", "ranking": "Rangliste", "migration": "Migration", "kingdomTitle": "Königreich", "kingdomIntroTitle": "Königreich 2344", "operations": "Aktuelle Aktivitäten", "alliancesTitle": "Top 5 Allianzen", "rankingTitle": "Rangliste", "rankHeading": "Königreichs-Ranglisten", "migrationTitle": "Migration", "migrationInfoTitle": "Migrationsinformationen", "newArrivals": "Für Neuankömmlinge", "allianceDesc": "Informationen zu Allianz, Führung, Zeitzone und Rekrutierung."}, "es": {"home": "Inicio", "kingdom": "Reino", "alliances": "Alianzas", "ranking": "Clasificación", "migration": "Migración", "kingdomTitle": "Reino", "kingdomIntroTitle": "Introducción al Reino", "operations": "Operaciones actuales", "alliancesTitle": "5 Alianzas principales", "rankingTitle": "Clasificación", "rankHeading": "Clasificaciones del Reino", "migrationTitle": "Migración", "migrationInfoTitle": "Información de migración", "newArrivals": "Para nuevos llegados", "allianceDesc": "Información sobre la alianza, liderazgo, zona horaria y reclutamiento."}, "fr": {"home": "Accueil", "kingdom": "Royaume", "alliances": "Alliances", "ranking": "Classement", "migration": "Migration", "kingdomTitle": "Royaume", "kingdomIntroTitle": "Présentation du royaume", "operations": "Opérations actuelles", "alliancesTitle": "Top 5 des alliances", "rankingTitle": "Classement", "rankHeading": "Classements du royaume", "migrationTitle": "Migration", "migrationInfoTitle": "Informations de migration", "newArrivals": "Pour les nouveaux arrivants", "allianceDesc": "Présentation, direction, fuseau horaire et recrutement de l’alliance."}, "ar": {"home": "الرئيسية", "kingdom": "المملكة", "alliances": "التحالفات", "ranking": "التصنيف", "migration": "الهجرة", "kingdomTitle": "المملكة", "kingdomIntroTitle": "مقدمة عن المملكة", "operations": "العمليات الحالية", "alliancesTitle": "أفضل 5 تحالفات", "rankingTitle": "التصنيف", "rankHeading": "تصنيفات المملكة", "migrationTitle": "الهجرة", "migrationInfoTitle": "معلومات الهجرة", "newArrivals": "للقادمين الجدد", "allianceDesc": "معلومات عن التحالف والقيادة والمنطقة الزمنية والتجنيد."}, "id": {"home": "Beranda", "kingdom": "Kerajaan", "alliances": "Aliansi", "ranking": "Peringkat", "migration": "Migrasi", "kingdomTitle": "Kerajaan", "kingdomIntroTitle": "Tentang Kerajaan", "operations": "Operasi Saat Ini", "alliancesTitle": "5 Aliansi Utama", "rankingTitle": "Peringkat", "rankHeading": "Peringkat Kerajaan", "migrationTitle": "Migrasi", "migrationInfoTitle": "Informasi Migrasi", "newArrivals": "Untuk Pendatang Baru", "allianceDesc": "Informasi aliansi, kepemimpinan, zona waktu, dan perekrutan."}, "zh-TW": {"home": "首頁", "kingdom": "王國介紹", "alliances": "聯盟介紹", "ranking": "排行榜", "migration": "移民", "kingdomTitle": "王國", "kingdomIntroTitle": "王國介紹", "operations": "目前運作", "alliancesTitle": "主要聯盟 5", "rankingTitle": "排行榜", "rankHeading": "王國排行榜", "migrationTitle": "移民", "migrationInfoTitle": "移民資訊", "newArrivals": "新移民", "allianceDesc": "聯盟介紹、領導、時區與招募資訊。"}, "zh-CN": {"home": "首页", "kingdom": "王国介绍", "alliances": "联盟介绍", "ranking": "排行榜", "migration": "移民", "kingdomTitle": "王国", "kingdomIntroTitle": "王国介绍", "operations": "当前运营", "alliancesTitle": "主要联盟 5", "rankingTitle": "排行榜", "rankHeading": "王国排行榜", "migrationTitle": "移民", "migrationInfoTitle": "移民信息", "newArrivals": "新移民", "allianceDesc": "联盟介绍、领导、时区和招募信息。"}, "ja": {"home": "ホーム", "kingdom": "王国紹介", "alliances": "同盟紹介", "ranking": "ランキング", "migration": "移民", "kingdomTitle": "王国", "kingdomIntroTitle": "王国紹介", "operations": "現在の運営", "alliancesTitle": "主要同盟 5", "rankingTitle": "ランキング", "rankHeading": "王国ランキング", "migrationTitle": "移民", "migrationInfoTitle": "移民情報", "newArrivals": "新規移民向け", "allianceDesc": "同盟紹介、リーダー、タイムゾーン、募集情報。"}};const N={"ko": "한국어", "en": "English", "de": "Deutsch", "es": "Español", "fr": "Français", "ar": "العربية", "id": "Bahasa Indonesia", "zh-TW": "繁體中文", "zh-CN": "简体中文", "ja": "日本語"};const s=document.getElementById('language');Object.keys(N).forEach(k=>{let o=document.createElement('option');o.value=k;o.textContent=N[k];s.appendChild(o)});function setLang(k){let t=T[k]||T.en;document.documentElement.lang=k;document.documentElement.dir=k==='ar'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(e=>{if(t[e.dataset.i18n])e.textContent=t[e.dataset.i18n]});localStorage.setItem('kingdom2344_lang',k);s.value=k} s.onchange=()=>setLang(s.value);setLang(localStorage.getItem('kingdom2344_lang')||'en');</script></body>
+<script>const T={"ko": {"home": "홈", "kingdom": "왕국 소개", "alliances": "연맹 소개", "ranking": "랭킹", "migration": "이민", "kingdomTitle": "왕국 소개", "kingdomIntroTitle": "2344 왕국", "operations": "주요 운영", "alliancesTitle": "주요 연맹 5", "rankingTitle": "랭킹", "rankHeading": "왕국 랭킹", "migrationTitle": "이민", "migrationInfoTitle": "이민 정보", "newArrivals": "새로운 이민자", "allianceDesc": "연맹 소개, 리더십, 시간대 및 모집 정보를 확인할 수 있습니다."}, "en": {"home": "Home", "kingdom": "Kingdom", "alliances": "Alliances", "ranking": "Ranking", "migration": "Migration", "kingdomTitle": "Kingdom", "kingdomIntroTitle": "Kingdom Introduction", "operations": "Current Operations", "alliancesTitle": "Top 5 Alliances", "rankingTitle": "Ranking", "rankHeading": "Kingdom Rankings", "migrationTitle": "Migration", "migrationInfoTitle": "Migration Information", "newArrivals": "For New Arrivals", "allianceDesc": "Alliance introduction, leadership, timezone and recruitment information."}, "de": {"home": "Startseite", "kingdom": "Königreich", "alliances": "Allianzen", "ranking": "Rangliste", "migration": "Migration", "kingdomTitle": "Königreich", "kingdomIntroTitle": "Königreich 2344", "operations": "Aktuelle Aktivitäten", "alliancesTitle": "Top 5 Allianzen", "rankingTitle": "Rangliste", "rankHeading": "Königreichs-Ranglisten", "migrationTitle": "Migration", "migrationInfoTitle": "Migrationsinformationen", "newArrivals": "Für Neuankömmlinge", "allianceDesc": "Informationen zu Allianz, Führung, Zeitzone und Rekrutierung."}, "es": {"home": "Inicio", "kingdom": "Reino", "alliances": "Alianzas", "ranking": "Clasificación", "migration": "Migración", "kingdomTitle": "Reino", "kingdomIntroTitle": "Introducción al Reino", "operations": "Operaciones actuales", "alliancesTitle": "5 Alianzas principales", "rankingTitle": "Clasificación", "rankHeading": "Clasificaciones del Reino", "migrationTitle": "Migración", "migrationInfoTitle": "Información de migración", "newArrivals": "Para nuevos llegados", "allianceDesc": "Información sobre la alianza, liderazgo, zona horaria y reclutamiento."}, "fr": {"home": "Accueil", "kingdom": "Royaume", "alliances": "Alliances", "ranking": "Classement", "migration": "Migration", "kingdomTitle": "Royaume", "kingdomIntroTitle": "Présentation du royaume", "operations": "Opérations actuelles", "alliancesTitle": "Top 5 des alliances", "rankingTitle": "Classement", "rankHeading": "Classements du royaume", "migrationTitle": "Migration", "migrationInfoTitle": "Informations de migration", "newArrivals": "Pour les nouveaux arrivants", "allianceDesc": "Présentation, direction, fuseau horaire et recrutement de l’alliance."}, "ar": {"home": "الرئيسية", "kingdom": "المملكة", "alliances": "التحالفات", "ranking": "التصنيف", "migration": "الهجرة", "kingdomTitle": "المملكة", "kingdomIntroTitle": "مقدمة عن المملكة", "operations": "العمليات الحالية", "alliancesTitle": "أفضل 5 تحالفات", "rankingTitle": "التصنيف", "rankHeading": "تصنيفات المملكة", "migrationTitle": "الهجرة", "migrationInfoTitle": "معلومات الهجرة", "newArrivals": "للقادمين الجدد", "allianceDesc": "معلومات عن التحالف والقيادة والمنطقة الزمنية والتجنيد."}, "id": {"home": "Beranda", "kingdom": "Kerajaan", "alliances": "Aliansi", "ranking": "Peringkat", "migration": "Migrasi", "kingdomTitle": "Kerajaan", "kingdomIntroTitle": "Tentang Kerajaan", "operations": "Operasi Saat Ini", "alliancesTitle": "5 Aliansi Utama", "rankingTitle": "Peringkat", "rankHeading": "Peringkat Kerajaan", "migrationTitle": "Migrasi", "migrationInfoTitle": "Informasi Migrasi", "newArrivals": "Untuk Pendatang Baru", "allianceDesc": "Informasi aliansi, kepemimpinan, zona waktu, dan perekrutan."}, "zh-TW": {"home": "首頁", "kingdom": "王國介紹", "alliances": "聯盟介紹", "ranking": "排行榜", "migration": "移民", "kingdomTitle": "王國", "kingdomIntroTitle": "王國介紹", "operations": "目前運作", "alliancesTitle": "主要聯盟 5", "rankingTitle": "排行榜", "rankHeading": "王國排行榜", "migrationTitle": "移民", "migrationInfoTitle": "移民資訊", "newArrivals": "新移民", "allianceDesc": "聯盟介紹、領導、時區與招募資訊。"}, "zh-CN": {"home": "首页", "kingdom": "王国介绍", "alliances": "联盟介绍", "ranking": "排行榜", "migration": "移民", "kingdomTitle": "王国", "kingdomIntroTitle": "王国介绍", "operations": "当前运营", "alliancesTitle": "主要联盟 5", "rankingTitle": "排行榜", "rankHeading": "王国排行榜", "migrationTitle": "移民", "migrationInfoTitle": "移民信息", "newArrivals": "新移民", "allianceDesc": "联盟介绍、领导、时区和招募信息。"}, "ja": {"home": "ホーム", "kingdom": "王国紹介", "alliances": "同盟紹介", "ranking": "ランキング", "migration": "移民", "kingdomTitle": "王国", "kingdomIntroTitle": "王国紹介", "operations": "現在の運営", "alliancesTitle": "主要同盟 5", "rankingTitle": "ランキング", "rankHeading": "王国ランキング", "migrationTitle": "移民", "migrationInfoTitle": "移民情報", "newArrivals": "新規移民向け", "allianceDesc": "同盟紹介、リーダー、タイムゾーン、募集情報。"}};const N={"ko": "한국어", "en": "English", "de": "Deutsch", "es": "Español", "fr": "Français", "ar": "العربية", "id": "Bahasa Indonesia", "zh-TW": "繁體中文", "zh-CN": "简体中文", "ja": "日本語"};const s=document.getElementById('language');Object.keys(N).forEach(k=>{let o=document.createElement('option');o.value=k;o.textContent=N[k];s.appendChild(o)});function setLang(k){let t=T[k]||T.en;document.documentElement.lang=k;document.documentElement.dir=k==='ar'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(e=>{if(t[e.dataset.i18n])e.textContent=t[e.dataset.i18n]});localStorage.setItem('kingdom2344_lang',k);s.value=k} s.onchange=()=>setLang(s.value);setLang(localStorage.getItem('kingdom2344_lang')||'en');</script>
+<script>
+(function () {
+  if (window.matchMedia && !window.matchMedia('(pointer:fine)').matches) return;
+
+  const dot = document.createElement('div');
+  const ring = document.createElement('div');
+  dot.className = 'k2344-cursor-dot';
+  ring.className = 'k2344-cursor-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  let x = -100, y = -100, rx = -100, ry = -100;
+  let active = false;
+
+  function move(e) {
+    x = e.clientX;
+    y = e.clientY;
+    if (!active) {
+      active = true;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+    dot.style.transform = `translate3d(${x}px,${y}px,0)`;
+  }
+
+  function animate() {
+    rx += (x - rx) * 0.16;
+    ry += (y - ry) * 0.16;
+    ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+    requestAnimationFrame(animate);
+  }
+
+  document.addEventListener('mousemove', move, {passive:true});
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    if (active) {
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+  });
+
+  document.addEventListener('mousedown', () => ring.classList.add('is-press'));
+  document.addEventListener('mouseup', () => ring.classList.remove('is-press'));
+
+  function bindHover() {
+    document.querySelectorAll('a, button, [role="button"], input, select, textarea, .card, .ranking-card, .alliance-card, .nav-link').forEach(el => {
+      if (el.dataset.k2344CursorBound) return;
+      el.dataset.k2344CursorBound = '1';
+      el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
+    });
+  }
+
+  bindHover();
+
+  const observer = new MutationObserver(bindHover);
+  observer.observe(document.body, {childList:true, subtree:true});
+
+  animate();
+})();
+</script>
+
+</body>
 </html>
