@@ -148,6 +148,155 @@ h1{
   .cards{grid-template-columns:1fr;gap:18px}
   .card:nth-child(n){grid-column:auto;max-width:none;margin:0}
 }
+
+/* Alliance detail modal */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  background:rgba(1,5,7,.82);
+  backdrop-filter:blur(10px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .35s ease, visibility .35s ease;
+}
+.modal-backdrop.open{
+  opacity:1;
+  visibility:visible;
+}
+.modal{
+  position:relative;
+  width:min(820px,94vw);
+  max-height:min(88vh,900px);
+  overflow:auto;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(226,196,139,.08),transparent 34%),
+    linear-gradient(145deg,#111b1d,#070d0f 58%,#0b1113);
+  border:1px solid rgba(226,196,139,.58);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.8),
+    0 0 0 1px rgba(226,196,139,.08),
+    0 0 55px rgba(226,196,139,.08);
+  transform:translateY(24px) scale(.97);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.modal-backdrop.open .modal{
+  transform:translateY(0) scale(1);
+}
+.modal::before,
+.modal::after{
+  content:"";
+  position:absolute;
+  width:42px;
+  height:42px;
+  border-color:var(--gold);
+  opacity:.75;
+  pointer-events:none;
+}
+.modal::before{
+  top:10px;left:10px;
+  border-top:1px solid;border-left:1px solid;
+}
+.modal::after{
+  right:10px;bottom:10px;
+  border-right:1px solid;border-bottom:1px solid;
+}
+.modal-inner{
+  padding:42px 46px 46px;
+}
+.modal-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  padding-bottom:24px;
+  border-bottom:1px solid rgba(226,196,139,.2);
+}
+.modal-kicker{
+  color:rgba(226,196,139,.62);
+  font-size:9px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+.modal-title{
+  margin:0;
+  color:#f0d8a8;
+  font-size:clamp(32px,5vw,52px);
+  font-weight:400;
+  letter-spacing:7px;
+}
+.modal-close{
+  width:38px;
+  height:38px;
+  flex:0 0 auto;
+  border:1px solid rgba(226,196,139,.35);
+  background:rgba(255,255,255,.025);
+  color:#e9d4aa;
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+  transition:.25s ease;
+}
+.modal-close:hover{
+  border-color:rgba(226,196,139,.8);
+  background:rgba(226,196,139,.08);
+  transform:rotate(90deg);
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  margin-top:24px;
+  background:rgba(226,196,139,.13);
+  border:1px solid rgba(226,196,139,.13);
+}
+.info-item{
+  padding:20px 22px;
+  min-height:88px;
+  background:rgba(7,13,15,.92);
+}
+.info-item.full{grid-column:1 / -1}
+.info-label{
+  color:rgba(226,196,139,.62);
+  font-size:9px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+.info-value{
+  color:rgba(245,239,226,.9);
+  font-size:14px;
+  line-height:1.65;
+  letter-spacing:.3px;
+}
+.info-value strong{
+  color:#e9d1a0;
+  font-weight:400;
+}
+.modal-footer{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid rgba(226,196,139,.16);
+  color:rgba(226,196,139,.48);
+  font-size:8px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  text-align:center;
+}
+@media(max-width:650px){
+  .modal-backdrop{padding:14px}
+  .modal-inner{padding:34px 22px 28px}
+  .info-grid{grid-template-columns:1fr}
+  .info-item.full{grid-column:auto}
+  .modal-title{letter-spacing:5px}
+}
+
+.alliance-open{padding:0;appearance:none;color:inherit;font:inherit;cursor:pointer;text-align:left;width:100%;}
 </style>
 </head>
 <body>
@@ -172,12 +321,124 @@ h1{
   </header>
 
   <section class="cards" aria-label="Kingdom 2344 Alliances">
-    <a class="card" href="?alliance=SUN"><img src="../../assets/images/SUN.png" alt="SUN"></a>
-    <a class="card" href="?alliance=VIP"><img src="../../assets/images/VIP.png" alt="VIP"></a>
-    <a class="card" href="?alliance=ZZZ"><img src="../../assets/images/ZZZ.png" alt="ZZZ"></a>
-    <a class="card" href="?alliance=FIL"><img src="../../assets/images/FIL.png" alt="FIL"></a>
-    <a class="card" href="?alliance=ODI"><img src="../../assets/images/ODI.png" alt="ODI"></a>
+    <button class="card alliance-open" type="button" data-alliance="SUN"><img src="../../assets/images/SUN.png" alt="SUN"></button>
+    <button class="card alliance-open" type="button" data-alliance="VIP"><img src="../../assets/images/VIP.png" alt="VIP"></button>
+    <button class="card alliance-open" type="button" data-alliance="ZZZ"><img src="../../assets/images/ZZZ.png" alt="ZZZ"></button>
+    <button class="card alliance-open" type="button" data-alliance="FIL"><img src="../../assets/images/FIL.png" alt="FIL"></button>
+    <button class="card alliance-open" type="button" data-alliance="ODI"><img src="../../assets/images/ODI.png" alt="ODI"></button>
   </section>
 </main>
+<!-- Alliance information modal -->
+<div class="modal-backdrop" id="allianceModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-inner">
+      <div class="modal-top">
+        <div>
+          <div class="modal-kicker">Kingdom 2344 · Alliance</div>
+          <h2 class="modal-title" id="modalTitle">SUN</h2>
+        </div>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">⏰ Main Events / Activity Time</div>
+          <div class="info-value" id="modalActivity">—</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">🐻 Bear Trap</div>
+          <div class="info-value"><strong>1st Team:</strong> — &nbsp; · &nbsp; <strong>2nd Team:</strong> —</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">⚔️ Swordland</div>
+          <div class="info-value"><strong>1st Team:</strong> — &nbsp; · &nbsp; <strong>2nd Team:</strong> —</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">🔺 Tri-Alliance</div>
+          <div class="info-value"><strong>1st Team:</strong> — &nbsp; · &nbsp; <strong>2nd Team:</strong> —</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">🌐 Main Language</div>
+          <div class="info-value" id="modalLanguage">—</div>
+        </div>
+
+        <div class="info-item full">
+          <div class="info-label">💬 R5's Message</div>
+          <div class="info-value" id="modalMessage">—</div>
+        </div>
+
+        <div class="info-item full">
+          <div class="info-label">👥 Who We're Looking For</div>
+          <div class="info-value" id="modalLooking">—</div>
+        </div>
+
+        <div class="info-item full">
+          <div class="info-label">📖 Alliance Introduction</div>
+          <div class="info-value" id="modalIntro">Alliance introduction</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Recruitment</div>
+          <div class="info-value">Check the alliance page for current status</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Contact</div>
+          <div class="info-value">Alliance Manager 이정</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">Kingdom 2344 · Royal Archive</div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(() => {
+  const modal = document.getElementById("allianceModal");
+  const closeBtn = document.getElementById("modalClose");
+  const title = document.getElementById("modalTitle");
+
+  const data = {
+    SUN: { activity:"—", language:"—", message:"—", looking:"—", intro:"Alliance introduction" },
+    VIP: { activity:"—", language:"—", message:"—", looking:"—", intro:"Alliance introduction" },
+    ZZZ: { activity:"—", language:"—", message:"—", looking:"—", intro:"Alliance introduction" },
+    FIL: { activity:"—", language:"—", message:"—", looking:"—", intro:"Alliance introduction" },
+    ODI: { activity:"—", language:"—", message:"—", looking:"—", intro:"Alliance introduction" }
+  };
+
+  function openAlliance(name){
+    const item = data[name] || data.SUN;
+    title.textContent = name;
+    document.getElementById("modalActivity").textContent = item.activity;
+    document.getElementById("modalLanguage").textContent = item.language;
+    document.getElementById("modalMessage").textContent = item.message;
+    document.getElementById("modalLooking").textContent = item.looking;
+    document.getElementById("modalIntro").textContent = item.intro;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeAlliance(){
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".alliance-open").forEach(card => {
+    card.addEventListener("click", () => openAlliance(card.dataset.alliance));
+  });
+  closeBtn.addEventListener("click", closeAlliance);
+  modal.addEventListener("click", e => { if(e.target === modal) closeAlliance(); });
+  document.addEventListener("keydown", e => { if(e.key === "Escape") closeAlliance(); });
+})();
+</script>
+
 </body>
 </html>
